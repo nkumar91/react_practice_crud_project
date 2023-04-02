@@ -1,24 +1,27 @@
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.min.css'; 
 import './App.css';
-
+import { BrowserRouter as Router ,Routes,Route } from 'react-router-dom';
+import Login from './components/Auth/Login';
+import Signup from './components/Auth/Signup';
+import NotFound404 from './components/NotFound/NotFound404';
+import Dashboard from './components/Dashboard/Dashboard';
+import Main from './context/Main';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+    <Router>
+      <Main>
+      <Routes>
+        <Route path='/' element={<Login />}></Route>
+        <Route path='/signup' element = {<Signup />}></Route>
+        <Route path='/dashboard' element = {<Dashboard />}></Route>
+        <Route path='*' element = {<NotFound404 />}></Route>
+      </Routes>
+      </Main>
+    </Router>
+   </>
   );
 }
 
