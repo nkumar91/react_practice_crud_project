@@ -10,6 +10,7 @@ export default function Main({children}){
     useEffect(()=>{
         if(getStorage()){
             setUserInfo(getStorage())
+            navigate("/dashboard")
         }
     },[])
     function logout(){
