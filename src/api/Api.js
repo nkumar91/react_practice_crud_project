@@ -42,3 +42,16 @@ export const getEmployeeListApi = async ()=>{
 
     return await res.json()
 }
+
+
+export const uploadImage = async (formData)=>{
+    const res =    await fetch(`${API_BASE_URL}${Route.uploadFile}`,{
+       method:"POST",
+       headers:{
+           "Authorization":`Bearer ${getToken()}`
+       },
+       body:formData
+
+    })
+    return await res.json()
+}
